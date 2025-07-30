@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2tlo4tyexu4k"]
+
+[ext_resource type="Script" uid="uid://bvaro3ko5008m" path="res://scripts/starfield.gd" id="1_0ykhv"]
+[ext_resource type="Texture2D" uid="uid://cqyddrwgf1a7g" path="res://assets/starfields/Starfield1.png" id="1_yqorp"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_0ykhv")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Press Fire To Play"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Far" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+
+[node name="FarSprite" type="Sprite2D" parent="ParallaxBackground/Far"]
+texture_repeat = 2
+texture = ExtResource("1_yqorp")
+
+[node name="Mid" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+
+[node name="MidSprite" type="Sprite2D" parent="ParallaxBackground/Mid"]
+texture_repeat = 2
+texture = ExtResource("1_yqorp")
+
+[node name="Near" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+
+[node name="NearSprite" type="Sprite2D" parent="ParallaxBackground/Near"]
+texture_repeat = 2
+texture = ExtResource("1_yqorp")
