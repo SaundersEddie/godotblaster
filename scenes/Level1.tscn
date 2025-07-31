@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dx0jdpvuc8bgk"]
+
+[ext_resource type="PackedScene" uid="uid://bbdrkl3ha46gv" path="res://scenes/StarLayer.tscn" id="1_6ovph"]
+[ext_resource type="Texture2D" uid="uid://2pc4ivh31kxo" path="res://assets/sprites/player/Player.png" id="2_odhdn"]
+[ext_resource type="Script" uid="uid://yw5sry2bgenj" path="res://scripts/player.gd" id="3_dw26h"]
+
+[node name="Level1" type="Node2D"]
+
+[node name="FarStars" parent="." instance=ExtResource("1_6ovph")]
+speed = 100.0
+
+[node name="MidStars" parent="." instance=ExtResource("1_6ovph")]
+speed = 200.0
+
+[node name="CloseStars" parent="." instance=ExtResource("1_6ovph")]
+speed = 300.0
+
+[node name="Player" type="Sprite2D" parent="."]
+position = Vector2(200, 540)
+scale = Vector2(3, 3)
+texture = ExtResource("2_odhdn")
+script = ExtResource("3_dw26h")

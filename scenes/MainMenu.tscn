@@ -1,39 +1,43 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2tlo4tyexu4k"]
+[gd_scene load_steps=4 format=3 uid="uid://c2tlo4tyexu4k"]
 
 [ext_resource type="Script" uid="uid://bvaro3ko5008m" path="res://scripts/starfield.gd" id="1_0ykhv"]
-[ext_resource type="Texture2D" uid="uid://cqyddrwgf1a7g" path="res://assets/starfields/Starfield1.png" id="1_yqorp"]
+[ext_resource type="PackedScene" uid="uid://bbdrkl3ha46gv" path="res://scenes/StarLayer.tscn" id="2_0ykhv"]
+[ext_resource type="AudioStream" uid="uid://uud0dbes7mew" path="res://assets/music/Energy Source(Main).wav" id="3_2wh52"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_0ykhv")
 
+[node name="FarStars" parent="." instance=ExtResource("2_0ykhv")]
+star_count = 10
+speed = 100.0
+color = Color(0.476578, 0.476578, 0.476578, 1)
+
+[node name="MedStars" parent="." instance=ExtResource("2_0ykhv")]
+star_count = 10
+speed = 200.0
+color = Color(0.476359, 0.579724, 0.942337, 1)
+
+[node name="NearStars" parent="." instance=ExtResource("2_0ykhv")]
+star_count = 10
+speed = 300.0
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_2wh52")
+autoplay = true
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Label" type="Label" parent="CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 23.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -67.5
+offset_top = -23.0
+offset_right = 67.5
+grow_horizontal = 2
+grow_vertical = 0
 text = "Press Fire To Play"
 horizontal_alignment = 1
 vertical_alignment = 2
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-
-[node name="Far" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0, 0)
-
-[node name="FarSprite" type="Sprite2D" parent="ParallaxBackground/Far"]
-texture_repeat = 2
-texture = ExtResource("1_yqorp")
-
-[node name="Mid" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0, 0)
-
-[node name="MidSprite" type="Sprite2D" parent="ParallaxBackground/Mid"]
-texture_repeat = 2
-texture = ExtResource("1_yqorp")
-
-[node name="Near" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0, 0)
-
-[node name="NearSprite" type="Sprite2D" parent="ParallaxBackground/Near"]
-texture_repeat = 2
-texture = ExtResource("1_yqorp")

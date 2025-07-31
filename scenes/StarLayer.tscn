@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbdrkl3ha46gv"]
+
+[ext_resource type="Script" uid="uid://cwm11s58vy0ca" path="res://scripts/starlayer.gd" id="1_cb3y0"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_cb3y0")
